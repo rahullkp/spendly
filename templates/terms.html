@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+
+{% block title %}Terms and Conditions — Spendly{% endblock %}
+
+{% block content %}
+
+<section class="legal-section">
+    <div class="legal-container">
+
+        <div class="auth-header">
+            <h1 class="auth-title">Terms and Conditions</h1>
+            <p class="auth-subtitle">Please read these terms before using Spendly</p>
+        </div>
+
+        <div class="legal-card">
+
+        <h2>1. Acceptance of terms</h2>
+        <p>By creating an account or using Spendly, you agree to these terms. If you do not agree, please do not use the service.</p>
+
+        <h2>2. Your account</h2>
+        <ul>
+            <li>You must provide accurate information when registering.</li>
+            <li>You are responsible for keeping your password secure and for all activity under your account.</li>
+            <li>Notify us promptly if you suspect unauthorised access.</li>
+        </ul>
+
+        <h2>3. Your data</h2>
+        <ul>
+            <li>You own the expense data you enter into Spendly.</li>
+            <li>We store it only to provide the service to you.</li>
+            <li>You may edit or delete your expenses at any time.</li>
+        </ul>
+
+        <h2>4. Acceptable use</h2>
+        <ul>
+            <li>Use Spendly only for lawful, personal expense tracking.</li>
+            <li>Do not attempt to disrupt the service or access other users' data.</li>
+        </ul>
+
+        <h2>5. Not financial advice</h2>
+        <p>Spendly is a tracking tool. Summaries and breakdowns are for information only and are not financial, tax or investment advice.</p>
+
+        <h2>6. Availability and liability</h2>
+        <p>The service is provided "as is" without warranties. We do not guarantee uninterrupted access and are not liable for losses arising from use of the service or loss of data, so please keep your own records of important transactions.</p>
+
+        <h2>7. Changes to these terms</h2>
+        <p>We may update these terms from time to time. Continued use of Spendly after changes means you accept the updated terms.</p>
+
+        </div>
+
+        <p class="legal-back"><a href="{{ url_for('landing') }}">← Back to home</a></p>
+
+    </div>
+</section>
+
+{% endblock %}
