@@ -17,7 +17,7 @@
         </p>
         <div class="hero-actions">
             <a href="{{ url_for('register') }}" class="hero-btn">Create free account</a>
-            <a href="#" class="hero-btn">See how it works</a>
+            <button type="button" class="hero-btn" id="open-video" data-video-id="dQw4w9WgXcQ">See how it works</button>
         </div>
     </div>
 
@@ -89,4 +89,44 @@
     </div>
 </section>
 
+<div class="video-modal" id="video-modal" aria-hidden="true">
+    <div class="video-modal-box" role="dialog" aria-modal="true" aria-label="Spendly walkthrough video">
+        <button type="button" class="video-modal-close" id="close-video" aria-label="Close video">✕</button>
+        <iframe id="video-frame" title="Spendly walkthrough"
+                allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+(function () {
+    var openBtn = document.getElementById('open-video');
+    var modal = document.getElementById('video-modal');
+    var frame = document.getElementById('video-frame');
+    var closeBtn = document.getElementById('close-video');
+
+    function openModal() {
+        frame.src = 'https://www.youtube.com/embed/' + openBtn.dataset.videoId + '?autoplay=1&rel=0';
+        modal.classList.add('open');
+        modal.setAttribute('aria-hidden', 'false');
+    }
+
+    function closeModal() {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        frame.removeAttribute('src');   // removing src stops the video
+    }
+
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', function (e) {
+        if (e.target === modal) closeModal();   // click on dark area only
+    });
+    document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') closeModal();
+    });
+})();
+</script>
 {% endblock %}
