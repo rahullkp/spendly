@@ -1,6 +1,12 @@
 from flask import Flask, render_template
 
+from database.db import get_db, init_db, seed_db
+
 app = Flask(__name__)
+
+with app.app_context():
+    init_db()
+    seed_db()
 
 
 # ------------------------------------------------------------------ #
@@ -32,7 +38,7 @@ def privacy():
     return render_template("privacy.html")
 
 
-# ------------------------------------------------------------------ #
+# -----------want you to ------------------------------------------------------- #
 # Placeholder routes — students will implement these                  #
 # ------------------------------------------------------------------ #
 
