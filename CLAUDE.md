@@ -34,6 +34,7 @@ and explain changes simply.
 ## Conventions
 
 - Don't run `git commit` unless asked. The author makes commits themselves.
+- Currency is USD: use `$` and formats like `$1,234.50`. Never use INR or `₹`.
 
 
 ## Code Style
